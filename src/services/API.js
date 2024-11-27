@@ -15,7 +15,7 @@ export const fetchData = async (endpoint) => {
   }
 };
 
-// Función para realizar solicitudes POST
+// Function para las solicitudes POST
 export const postData = async (endpoint, data) => {
   try {
     const response = await fetch(`${API_URL}${endpoint}`, {
