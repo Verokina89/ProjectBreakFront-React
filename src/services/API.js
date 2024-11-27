@@ -1,7 +1,6 @@
-// src/utils/API.js
 const API_URL = "https://projectbreak-back-react.onrender.com"; // URL de tu backend en producción
 
-// Función para realizar solicitudes GET
+//Function para manejar solicitudes GET
 export const fetchData = async (endpoint) => {
   try {
     const response = await fetch(`${API_URL}${endpoint}`);
@@ -15,7 +14,7 @@ export const fetchData = async (endpoint) => {
   }
 };
 
-// Function para las solicitudes POST
+//Maneja solicitudes POST
 export const postData = async (endpoint, data) => {
   try {
     const response = await fetch(`${API_URL}${endpoint}`, {
