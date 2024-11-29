@@ -1,3 +1,11 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { UserProvider } from "./context/UserContext";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -8,8 +16,23 @@ function App() {
 
   return (
     <>
-
-
+      <UserProvider>
+        <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+        </Router>
+      </UserProvider>
     
       <div>
         <a href="https://vite.dev" target="_blank">
