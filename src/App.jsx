@@ -24,7 +24,6 @@ function App() {
           <AppRoutes />
         </BrowserRouter> 
       </UserProvider>
-  );
     
       {/* <div>
         <a href="https://vite.dev" target="_blank">

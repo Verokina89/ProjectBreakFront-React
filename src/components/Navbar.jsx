@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import { useUser } from '../context/UseUser';
-import "../styles/navbar.css"
+import '../styles/navbar.css'
+import '../App.css'
 
 const Navbar = () => {
   const { user, logout } = useUser();
-
+  
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -12,7 +13,7 @@ const Navbar = () => {
       </div>
       <ul className="navbar-links">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/category">Categorias</Link>
         </li>
         {!user ? (
           <li>

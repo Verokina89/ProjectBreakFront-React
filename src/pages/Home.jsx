@@ -1,10 +1,13 @@
 
 const Home = () => {
   return (
-    <div>
+    <>
+      <div>
       <h1>Inicio</h1>
-      <p>Bienvenido a la tienda de Kia y Canela; las pug calino mas monas</p>
+      <p>Bienvenidos a la tienda de Kia y Canela; las pug calino mas monas</p>
     </div>
+    </>
+    
   );
 };
 
