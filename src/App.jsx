@@ -1,9 +1,11 @@
 
 import { BrowserRouter  } from 'react-router-dom'
-import { UserProvider } from "./context/UserContext";
+import { UserProvider } from './context/UserProvider';
 import { useState } from 'react'
-import Navbar from "./components/Navbar";
+import Navbar from './components/Navbar';
 import AppRoutes from './routes/AppRoutes';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -17,12 +19,10 @@ function App() {
   return (
     <>
       <UserProvider>
-        
-      <BrowserRouter>
+        <BrowserRouter>
           <Navbar />
           <AppRoutes />
-        </BrowserRouter>
-        
+        </BrowserRouter> 
       </UserProvider>
   );
     
@@ -50,4 +50,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

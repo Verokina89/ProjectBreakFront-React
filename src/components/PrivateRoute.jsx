@@ -1,13 +1,7 @@
 // ruta protegida que sólo permita el acceso si el usuario está autenticado.
 import { Navigate } from 'react-router-dom';
 
-/**
- * Componente que protege rutas privadas.
- * 
- * @param {Object} props - Las propiedades pasadas al componente.
- * @param {React.Component} props.children - Componente hijo que se renderiza si el usuario está autenticado.
- * @returns {React.Element} - Redirige a la página de inicio de sesión si no está autenticado, de lo contrario, renderiza el componente hijo.
- */
+
 function PrivateRoute({ children }) {
     const isAuthenticated = !!localStorage.getItem('token'); // Ejemplo de autenticación basada en token.
 
