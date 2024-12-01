@@ -1,7 +1,7 @@
 //formulario para inicio de sesión de los usuarios(envia datos al backend, es decir, al endpoint /login)
 
 import { useState } from "react";
-import { postData } from "../utils/API";
+import { postData } from "../services/API";
 import { useUser } from "../context/UserContext";
 
 const Login = () => {

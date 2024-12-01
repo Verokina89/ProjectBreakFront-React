@@ -1,15 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { UserProvider } from "./context/UserContext";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import PrivateRoute from "./components/PrivateRoute";
 
+import { BrowserRouter  } from 'react-router-dom'
+import { UserProvider } from "./context/UserContext";
 import { useState } from 'react'
+import Navbar from "./components/Navbar";
+import AppRoutes from './routes/AppRoutes';
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import './index.css'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,22 +17,14 @@ function App() {
   return (
     <>
       <UserProvider>
-        <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-        </Router>
+        
+      <BrowserRouter>
+          <Navbar />
+          <AppRoutes />
+        </BrowserRouter>
+        
       </UserProvider>
+  );
     
       <div>
         <a href="https://vite.dev" target="_blank">
