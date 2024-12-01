@@ -1,6 +1,7 @@
 // ruta protegida que sólo permita el acceso si el usuario está autenticado.
 import { Navigate } from 'react-router-dom';
-
+import PropTypes from "prop-types"; 
+// import { UserContext } from "./UserContext";
 
 function PrivateRoute({ children }) {
     const isAuthenticated = !!localStorage.getItem('token'); // Ejemplo de autenticación basada en token.
@@ -14,7 +15,13 @@ function PrivateRoute({ children }) {
     return children;
 }
 
+PrivateRoute.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
 export default PrivateRoute;
+
+
 
 
 
