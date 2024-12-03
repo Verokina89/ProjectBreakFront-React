@@ -21,7 +21,7 @@ export const postData = async (endpoint, data, token = null) => {
   try {
     const headers = {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }), // Agrega token si existe
+      ...(token && { Authorization: `Bearer ${token}` }), //añade token si existe
     };
     const response = await fetch(`${API_URL}${endpoint}`, {
       method: "POST",
