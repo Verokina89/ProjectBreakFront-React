@@ -89,5 +89,8 @@ Autenticación con token: Asegúrate de incluir el token en los headers para pro
 
 -src/pages/Dashboard.jsx:
 
+-src/pages/Category.jsx: Mostrara los productos por categorías. Dado que esta funcionalidad es pública y no requiere autenticación, usaremos fetchData sin necesidad de un token.
 
+-src/utils/api.js: no es estrictamente necesario, po se pede utilizar pra manejar funciones adicionales o casos específicos si lo prefieres.
+Dado que ya centralizamos las solicitudes al backend en src/services/API.jsx. Por ejemplo hemops manejar aqui una función específica para productos destacados.
 
