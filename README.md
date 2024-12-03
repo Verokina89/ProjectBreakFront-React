@@ -1,8 +1,11 @@
 # React + Vite
+Trabajaremos un Frontend con React. El frontend debe consumir estos endpoints correctamente usando las herramientas configuradas (fetch, axios). Aseguramos de manejar correctamente el token de Firebase para proteger las rutas privadas (Dashboard, EditProduct, Favorites)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Acceso al Backend con los endpoints.
+/auth/login: Inicia sesión.
+/auth/logout: Cierra sesión.
+/api/products: Obtiene productos.
+/api/products/category/:category: Obtiene productos por categoría.
+/api/products/:id: Obtiene un producto específico por ID.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# A
