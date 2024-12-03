@@ -8,7 +8,7 @@ Trabajaremos un Frontend con React. El frontend debe consumir estos endpoints co
 /api/products/category/:category: Obtiene productos por categoría.
 /api/products/:id: Obtiene un producto específico por ID.
 
-# Archicos mportantes:
+# Archicos Importantes:
 -src/services/API.jsx: Este archivo es clave para conectar el frontend con el backend
 
 -src/pages/AddProduct.jsx: Manejar la creación de nuevos productos. Trabaja con postData (del archivo API.jsx)
@@ -66,7 +66,28 @@ Estructura organizada: El archivo API.jsx centraliza las solicitudes al backend 
 
   )
 
-Se integran las fnines de  API:JSX a los compbnentes o hooks (React) que manejan los callback al backend. Por ejemplo; en Login.jsx (utiliza postData para iniciar sesion en /auth/login, guarda el token devuelo en el loclStoage y actualiza), 
+Se integran las fnines de  API:JSX a los compbnentes o hooks (React) que manejan los callback al backend. Por ejemplo; en Login.jsx (utiliza postData para iniciar sesion en /auth/login, guarda el token devuelo en el loclStoage y actualiza), y  Dashboard.jsx que usa fetchData para obtener los productos y pasa el token en los headers.
 
--src/pages/Category.jsx:
+Entonces debemos de sbr que el manejo de Autenticación (Token)
+En cualquier solicitud que requiera autenticación, incluye el token en los headers. Esto se hace automáticamente en API.jsx cuando pasas el token como parámetro a las funciones fetchData, postData, etc. Luego, Guardar el Token devuelto por /auth/login en localStorage o en un contexto global (en este caso ya lo estás manejando con localStorage).
+ejemplo: 
+`
+localStorage.setItem("token", response.token);
+`
+Pra recuperar el Token antes de hacer solicitudes protegidas:
+`
+const token = localStorage.getItem("token");
+const response = await fetchData("/api/products", token);
+`
+Entonces acaramos que este archivo (API.JSX) contiene todas las funciones para interactuar con el backend, como fetchData, postData, etc.
+src/pages/Login.jsx: Usa postData para enviar credenciales y guardar el token en localStorage.
+src/pages/Dashboard.jsx: Usa fetchData con el token para obtener datos protegidos.
+Autenticación con token: Asegúrate de incluir el token en los headers para proteger las rutas privadas.
+
+-src/pages/Login.jsx:
+
+
+-src/pages/Dashboard.jsx:
+
+
 
