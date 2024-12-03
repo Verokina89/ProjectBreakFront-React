@@ -15,6 +15,9 @@ const Navbar = () => {
         <li>
           <Link to="/category">Categorias</Link>
         </li>
+        <li>
+          <Link to="/contacto">Contacto</Link>
+        </li>
         {!user ? (
           <li>
             <Link to="/login">Login</Link>
@@ -23,6 +26,9 @@ const Navbar = () => {
           <>
             <li>
               <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/favoritos">Favoritos</Link>
             </li>
             <li>
               <button onClick={logout} className="logout-button">

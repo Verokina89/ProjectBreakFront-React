@@ -4,8 +4,8 @@ import { UserProvider } from './context/UserProvider';
 // import { useState } from 'react'
 import Navbar from './components/Navbar';
 import AppRoutes from './routes/AppRoutes';
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
+// import Dashboard from './pages/Dashboard';
+// import Login from './pages/Login';
 
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
