@@ -1,4 +1,4 @@
-//UserProvider: envuelve la aplicación y proporciona el contexto para manejar el estado del usuario.useUser: un custom hook para acceder fácilmente al contexto del usuario en cualquier componente.
+//envuelve la aplicación y proporciona el contexto para manejar el estado del usuario.useUser: un custom hook para acceder fácilmente al contexto del usuario en cualquier componente.
 import { useState } from "react";
 import PropTypes from "prop-types"; 
 import { UserContext } from "./UserContext";
