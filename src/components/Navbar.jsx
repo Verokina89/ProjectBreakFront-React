@@ -35,7 +35,7 @@ const Navbar = () => {
         </li>
         {!user ? (
           <li>
-            <Link to="/auth/login">Login</Link>
+            <Link to="/login">Login</Link>
           </li>
         ) : (
           <>

@@ -30,7 +30,8 @@ body {
   min-height: 100vh;
 
   font-family: Arial, sans-serif;
-  background-color: #320570;
+  font-size: 22px;
+  background-color: #a076dc;
 }
 
 h1 {
