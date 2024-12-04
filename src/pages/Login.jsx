@@ -23,6 +23,7 @@ const Login = () => {
       localStorage.setItem("token", await user.getIdToken()); // Guarda el token en localStorage
       navigate("/dashboard"); // Redirige al dashboard
     } catch (err) {
+      console.error("Error al iniciar sesión:", err);
       setError("Credenciales incorrectas o error al iniciar sesión");
     }
   };
