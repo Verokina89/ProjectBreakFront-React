@@ -1,5 +1,4 @@
 //formulario para inicio de sesión de los usuarios(envia datos al backend, es decir, al endpoint /login)
-
 import { useState } from "react";
 import { postData } from  '../services/API'
 import { useUser } from '../context/UseUser';
@@ -11,10 +10,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const response = await postData("/auth/login", { email, password });
-    if (response && response.token) {
-      localStorage.setItem("token", response.token); //guarda el token en localStorage
-      login(response.user); //guarda datos en el contexto
+    if (response?.token) {
+      localStorage.setItem("token", response.token); // Guarda el token en localStorage
+      login(response.user); // Guarda los datos del usuario en el contexto
+      console.log("Login exitoso");
     } else {
       alert("Credenciales incorrectas");
     }
@@ -23,14 +24,16 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Iniciar Sesión</h2>
-      <label>Email:</label>
+      <label htmlFor="email">Email:</label>
       <input
+        id="email"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <label>Contraseña:</label>
+      <label htmlFor="password">Contraseña:</label>
       <input
+        id="password"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
