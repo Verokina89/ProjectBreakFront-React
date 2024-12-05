@@ -35,9 +35,23 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 60px;
   line-height: 1.1;
 }
+
+.categoys{
+  font-size: 20px;
+  
+}
+
+select{
+  font-size: 40px;
+  background-color: rgb(247, 246, 244);
+  color: #1a1a1a;
+  
+}
+
+
 
 button {
   border-radius: 8px;

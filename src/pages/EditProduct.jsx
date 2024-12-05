@@ -1,47 +1,117 @@
 import { useEffect, useState } from "react";
-import { fetchData, putData } from "../services/API";
-import { useParams } from "react-router-dom";
+import { fetchDataProduct, putDataProduct } from "../services/API";
+import { useNavigate, useParams } from "react-router-dom";
+import '../styles/dashboard.css'
 
 const EditProduct = () => {
-  const { productId } = useParams();
-  const [formData, setFormData] = useState(null);
+  const { productId } = useParams(); // Obtiene el ID del producto desde la URL
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    price: '',
+    image: '',
+  });
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
+  // Carga el producto cuando el componente se monta
   useEffect(() => {
     const fetchProduct = async () => {
-      const product = await fetchData(`/api/products/${productId}`);
-      setFormData(product);
+      try {
+        const token = localStorage.getItem('token'); // Obtén el token para autenticación
+        const product = await fetchDataProduct(`/api/products/${productId}`, token); // Llama al endpoint para obtener el producto
+        if (product) {
+          setFormData(product); // Llena el formulario con los datos del producto
+        } else {
+          setError('Producto no encontrado');
+        }
+      } catch (err) {
+        setError('Error al cargar el producto');
+        console.error(err);
+      }
     };
     fetchProduct();
   }, [productId]);
 
+  // Maneja los cambios en los campos del formulario
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
+  // Envía los datos del formulario para actualizar el producto
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await putData(`/api/products/${productId}/edit`, formData);
-    if (result) {
-      alert("Producto actualizado exitosamente.");
-    } else {
-      alert("Error al actualizar producto.");
+    try {
+      const token = localStorage.getItem('token'); // Obtén el token
+      const result = await putDataProduct(`/api/products/${productId}`, formData, token); // Llama al endpoint PUT
+      if (result) {
+        alert('Producto actualizado exitosamente.');
+        navigate('/dashboard'); // Redirige al Dashboard
+      } else {
+        alert('Error al actualizar el producto.');
+      }
+    } catch (err) {
+      console.error('Error al actualizar:', err);
+      setError('Error al actualizar el producto');
     }
   };
 
-  if (!formData) return <p>Cargando...</p>;
-
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Editar Producto</h2>
-      <input name="name" value={formData.name} onChange={handleInputChange} />
-      <input name="description" value={formData.description} onChange={handleInputChange} />
-      <input name="image" value={formData.image} onChange={handleInputChange} />
-      <input name="category" value={formData.category} onChange={handleInputChange} />
-      <input name="size" value={formData.size} onChange={handleInputChange} />
-      <input name="price" value={formData.price} onChange={handleInputChange} />
-      <button type="submit">Actualizar Producto</button>
-    </form>
+    <div>
+      <h1>Editar Producto</h1>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Nombre:</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="description">Descripción:</label>
+          <textarea
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="price">Precio:</label>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            value={formData.price}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="image">Imagen (URL):</label>
+          <input
+            id="image"
+            name="image"
+            type="text"
+            value={formData.image}
+            onChange={handleInputChange}
+          />
+        </div>
+        <button type="submit">Actualizar Producto</button>
+      </form>
+    </div>
   );
 };
+
+
 export default EditProduct;

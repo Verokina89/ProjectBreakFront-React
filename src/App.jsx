@@ -1,12 +1,8 @@
 
 import { BrowserRouter  } from 'react-router-dom'
-import { UserProvider } from './context/UserProvider';
-// import { useState } from 'react'
-import Navbar from './components/Navbar';
-import AppRoutes from './routes/AppRoutes';
-// import Dashboard from './pages/Dashboard';
-// import Login from './pages/Login';
-
+import { UserProvider } from './context/UserProvider'
+import Navbar from './components/Navbar'
+import AppRoutes from './routes/AppRoutes'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css';

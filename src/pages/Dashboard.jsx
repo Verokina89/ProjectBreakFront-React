@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchData, deleteData } from '../services/API';
+import { fetchDataProduct, deleteDataProduct } from '../services/API';
 import '../styles/dashboard.css'; // Asegúrate de tener un archivo CSS para los estilos
 
 const Dashboard = () => {
@@ -17,7 +17,7 @@ const Dashboard = () => {
 
     const getProducts = async () => {
       const token = localStorage.getItem('token');
-      const response = await fetchData('/api/products', token);
+      const response = await fetchDataProduct('/api/products', token);
       if (response) {
         setProducts(response);
       } else {
@@ -35,7 +35,7 @@ const Dashboard = () => {
 
   const handleDelete = async (productId) => {
     const token = localStorage.getItem('token');
-    const response = await deleteData(`/api/products/${productId}`, token);
+    const response = await deleteDataProduct(`/api/products/${productId}`, token);
     if (response) {
       setProducts(products.filter((product) => product._id !== productId));
     } else {

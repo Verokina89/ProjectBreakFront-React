@@ -4,7 +4,7 @@
 const API_URL = "https://projectbreak-back-react.onrender.com"; // URL de tu backend en producción (define la URL base de tu backend)
 
 //manejo de solicitudes GET
-export const fetchData = async (endpoint, token = null) => {
+export const fetchDataProduct = async (endpoint, token = null) => {
   try {
     const headers = token ? { Authorization: `Bearer ${token}` } : {}; // Agrega token si existe
     const response = await fetch(`${API_URL}${endpoint}`, { headers });
@@ -19,7 +19,7 @@ export const fetchData = async (endpoint, token = null) => {
 };
 
 //manejo de POST
-export const postData = async (endpoint, data, token = null) => {
+export const postDataProduct = async (endpoint, data, token = null) => {
   try {
     const headers = {
       "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const postData = async (endpoint, data, token = null) => {
 };
 
 //solicitudes PUT
-export const putData = async (endpoint, data, token = null) => {
+export const putDataProduct = async (endpoint, data, token = null) => {
   try {
     const headers = {
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export const putData = async (endpoint, data, token = null) => {
 };
 
 //solicitudes DELETE
-export const deleteData = async (endpoint, token = null) => {
+export const deleteDataProduct = async (endpoint, token = null) => {
   try {
     const headers = token ? { Authorization: `Bearer ${token}` } : {}; // Agrega token si existe
     const response = await fetch(`${API_URL}${endpoint}`, {

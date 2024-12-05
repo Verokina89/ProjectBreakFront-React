@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchData } from "../services/API";
+import { fetchDataProduct } from "../services/API";
+
 
 const Category = () => {
   const [category, setCategory] = useState("T-shirts"); // Categoría por defecto
@@ -8,7 +9,7 @@ const Category = () => {
 
   useEffect(() => {
     const getProductsByCategory = async () => {
-      const response = await fetchData(`/api/products/category/${category}`);
+      const response = await fetchDataProduct(`/api/products/category/${category}`);
       if (response) {
         setProducts(response);
       } else {
@@ -19,7 +20,7 @@ const Category = () => {
   }, [category]);
 
   return (
-    <div>
+    <div className="categoys">
       <h1>Productos por Categoría</h1>
       {error && <p>{error}</p>}
       <select

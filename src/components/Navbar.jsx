@@ -6,20 +6,7 @@ import '../App.css'
 
 const Navbar = () => {
   const { user, logout } = useUser();
-  //logica logout
-  // const handleLogout = async () => {
-  //   try {
-  //     const response = await postData('/auth/logout'); // Llama al endpoint del backend
-  //     if (response && response.success) {
-  //       localStorage.removeItem('token'); // Limpia el token del localStorage
-  //       logout(); // Limpia el estado del usuario en el contexto
-  //     } else {
-  //       console.error('Error al cerrar sesión:', response.error);
-  //     }
-  //   } catch (error) {
-  //     console.error('Logout error:', error);
-  //   }
-  // };
+  
   const handleLogout = () => {
     localStorage.removeItem("token"); // Elimina el token del localStorage
     logout(); // Limpia el contexto del usuario
