@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchDataProduct, putDataProduct } from "../services/API";
 import { useNavigate, useParams } from "react-router-dom";
-import '../styles/dashboard.css'
+import '../styles/dashboard.css';
 
 const EditProduct = () => {
   const { productId } = useParams(); // Obtiene el ID del producto desde la URL
@@ -47,7 +47,7 @@ const EditProduct = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token'); // Obtén el token
-      const result = await putDataProduct(`/api/products/${productId}`, formData, token); // Llama al endpoint PUT
+      const result = await putDataProduct(`/api/products/${productId}/edit`, formData, token); // Llama al endpoint PUT
       if (result) {
         alert('Producto actualizado exitosamente.');
         navigate('/dashboard'); // Redirige al Dashboard
@@ -112,6 +112,5 @@ const EditProduct = () => {
     </div>
   );
 };
-
 
 export default EditProduct;
