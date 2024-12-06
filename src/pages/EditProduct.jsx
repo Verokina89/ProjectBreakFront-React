@@ -46,8 +46,8 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token'); // Obtén el token
-      const result = await putDataProduct(`/api/products/${productId}/edit`, formData, token); // Llama al endpoint PUT
+      const token = localStorage.getItem('token');
+      const result = await putDataProduct(`/api/products/${productId}`, formData, token); // Llama al endpoint PUT
       if (result) {
         alert('Producto actualizado exitosamente.');
         navigate('/dashboard'); // Redirige al Dashboard

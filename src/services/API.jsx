@@ -47,7 +47,7 @@ export const putDataProduct = async (endpoint, data, token = null) => {
       "Content-Type": "application/json",
       ...(token && { Authorization: `Bearer ${token}` }), // Agrega token si existe
     };
-    const response = await fetch(`${API_URL}${endpoint}`, {
+    const response = await fetch(`${API_URL}${endpoint}`, { 
       method: "PUT",
       headers,
       body: JSON.stringify(data),
