@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import Category from '../pages/Category';
 import Contact from '../pages/Contact';
 import EditProduct from '../pages/EditProduct';
+import CreateNew from '../pages/CreateNew';
 // import Favorites from '../pages/Favorites'
 
 function AppRoutes() {
@@ -17,6 +18,7 @@ function AppRoutes() {
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
             {/* <Route path="/favorites" element={<PrivateRoute><Favorites /></PrivateRoute>} /> */}
             <Route path="/edit-product/:productId" element={<PrivateRoute><EditProduct /></PrivateRoute>} />
+            <Route path="/create" element={<PrivateRoute><CreateNew/>Crear Nuevo Producto</PrivateRoute>} />
             <Route path="/login" element={<Login />} />
         </Routes>
     );
