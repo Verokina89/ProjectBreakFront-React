@@ -2,7 +2,6 @@ import { useState } from "react";
 import { postDataProduct } from "../services/API";
 import { useNavigate } from "react-router-dom";
 
-
 const CreateNew = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -25,7 +24,7 @@ const CreateNew = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token"); // Recupera el token de autenticación
-      const result = await postDataProduct("/api/products/create", formData, token); // Envía los datos al backend
+      const result = await postDataProduct("/products/create", formData, token); // Envía los datos al backend
       if (result) {
         setMessage("Producto creado exitosamente."); // Muestra mensaje de éxito
         setTimeout(() => {
