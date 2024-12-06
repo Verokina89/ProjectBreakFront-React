@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchDataProduct, putDataProduct } from "../services/API";
 import { useNavigate, useParams } from "react-router-dom";
-import '../styles/dashboard.css';
+import '../styles/dashboard.css'
 
 const EditProduct = () => {
   const { productId } = useParams(); // Obtiene el ID del producto desde la URL
@@ -112,5 +112,6 @@ const EditProduct = () => {
     </div>
   );
 };
+
 
 export default EditProduct;
