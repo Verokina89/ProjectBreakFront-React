@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "https://projectbreak-back-react.onrender.com/api";
+const API_URL = "https://projectbreak-back-react.onrender.com";
 
 // Manejo de solicitudes GET
 export const fetchDataProduct = async (endpoint, token = null) => {
