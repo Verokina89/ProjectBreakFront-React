@@ -13,22 +13,22 @@ const EditProduct = () => {
     size: "",
   });
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(true); // Nuevo estado para manejar la carga
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
 
-  // Carga los datos del producto al montar el componente
+  
   useEffect(() => {
 
     const fetchProduct = async () => {
-      setLoading(true); //mesS de carga
+      setLoading(true); 
       try {
-        const token = localStorage.getItem("token"); // Recupera el token
+        const token = localStorage.getItem("token"); 
         if (!token) {
           setMessage("Autenticación requerida. Por favor, inicia sesión.");
           setLoading(false);
           return;
         }
-        const product = await fetchDataProduct(`/api/products/${productId}`, token); // Obtiene los datos del producto
+        const product = await fetchDataProduct(`/api/products/${productId}`, token);
         if (product) {
           setFormData({
             name: product.name || "",
