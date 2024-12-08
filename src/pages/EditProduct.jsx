@@ -3,7 +3,7 @@ import { fetchDataProduct, putDataProduct } from "../services/API";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditProduct = () => {
-  const { productId } = useParams(); // Captura el ID del producto desde la URL
+  const { productId } = useParams(); 
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -18,9 +18,16 @@ const EditProduct = () => {
 
   // Carga los datos del producto al montar el componente
   useEffect(() => {
+
     const fetchProduct = async () => {
+      setLoading(true); //mesS de carga
       try {
         const token = localStorage.getItem("token"); // Recupera el token
+        if (!token) {
+          setMessage("Autenticación requerida. Por favor, inicia sesión.");
+          setLoading(false);
+          return;
+        }
         const product = await fetchDataProduct(`/api/products/${productId}`, token); // Obtiene los datos del producto
         if (product) {
           setFormData({
@@ -31,12 +38,15 @@ const EditProduct = () => {
             category: product.category || "",
             size: product.size || "",
           });
+        } else {
+          setMessage("Error: Producto no encontrado.");
         }
       } catch (error) {
+        console.error("Error al cargar producto:", error);
         setMessage("Error al cargar el producto.");
-        console.error(error);
+        
       } finally {
-        setLoading(false); // Marca como cargado
+        setLoading(false);
       }
     };
 
@@ -55,14 +65,23 @@ const EditProduct = () => {
   // Maneja el envío del formulario para actualizar el producto
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage(""); //reset mss
     try {
-      const token = localStorage.getItem("token");
-      const result = await putDataProduct(`/api/products/${productId}/edit`, formData, token); // Actualiza el producto
-      setMessage("Producto actualizado exitosamente.");
-      setTimeout(() => navigate("/dashboard"), 2000); // Redirige al Dashboard
+        const token = localStorage.getItem("token");
+      if (!token) {
+        setMessage("Autenticación requerida. Por favor, inicia sesión.");
+        return;
+      }
+      const result = await putDataProduct(`/api/products/${productId}/edit`, formData, token);
+      if (result) {
+        setMessage("Producto actualizado exitosamente.");
+        setTimeout(() => navigate("/dashboard"), 4000); // Redirige solo si la actualización fue exitosa
+      } else {
+        setMessage("Error al actualizar producto. Por favor, verifica los datos.");
+      }
     } catch (error) {
-      setMessage("Error al actualizar producto.");
-      console.error(error);
+      console.error("Error al actualizar producto:", error);
+      setMessage("Error al procesar la solicitud.");
     }
   };
 

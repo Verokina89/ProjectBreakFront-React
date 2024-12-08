@@ -26,3 +26,23 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
+
+/*
+
+function AppRoutes() {
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contacto" element={<Contact />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+
+            <Route path="/edit-product/:productId" element={<PrivateRoute><EditProduct /></PrivateRoute>} />
+
+            <Route path="/products/create" element={<PrivateRoute><CreateNew/>Crear Nuevo Producto</PrivateRoute>} />
+            <Route path="/login" element={<Login />} />
+        </Routes>
+    );
+}
+
+*/
