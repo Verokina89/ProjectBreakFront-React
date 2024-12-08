@@ -19,9 +19,9 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      login(user); // Actualiza el contexto con el usuario autenticado
-      localStorage.setItem("token", await user.getIdToken()); // Guarda el token en localStorage
-      navigate("/dashboard"); // Redirige al dashboard
+      login(user); 
+      localStorage.setItem("token", await user.getIdToken()); 
+      navigate("/dashboard");
     } catch (err) {
       console.error("Error al iniciar sesión:", err);
       setError("Credenciales incorrectas o error al iniciar sesión");

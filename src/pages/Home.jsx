@@ -4,7 +4,7 @@ const Home = () => {
     <>
       <div>
       <h1>Inicio</h1>
-      <p>Bienvenidos a la tienda de Kia y Canela; las pug calino mas monas</p>
+      <h2>Bienvenidos a la tienda de Kia y Canela; las pug calino mas monas</h2>
     </div>
     </>
     

@@ -22,12 +22,11 @@ export const fetchDataProduct = async (endpoint, token = null) => {
   }
 };
 
-//manejo de POST
 export const postDataProduct = async (endpoint, data, token = null) => {
   try {
     const headers = {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }), //añade token si existe
+      ...(token && { Authorization: `Bearer ${token}` }), 
     };
     const response = await fetch(`${API_URL}${endpoint}`, {
       method: "POST",
@@ -43,8 +42,6 @@ export const postDataProduct = async (endpoint, data, token = null) => {
     return null;
   }
 };
-
-//solicitudes PUT
 export const putDataProduct = async (endpoint, data, token = null) => {
   try {
     const headers = {
@@ -60,16 +57,16 @@ export const putDataProduct = async (endpoint, data, token = null) => {
       throw new Error("Error en la solicitud PUT");
     }
     return await response.json();
+
   } catch (error) {
     console.error("Error al actualizar los datos:", error);
     return null;
   }
 };
 
-//solicitudes DELETE
 export const deleteDataProduct = async (endpoint, token = null) => {
   try {
-    const headers = token ? { Authorization: `Bearer ${token}` } : {}; // Agrega token si existe
+    const headers = token ? { Authorization: `Bearer ${token}` } : {}; 
     const response = await fetch(`${API_URL}${endpoint}`, {
       method: "DELETE",
       headers,
