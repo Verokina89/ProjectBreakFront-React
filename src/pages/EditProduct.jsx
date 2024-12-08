@@ -53,7 +53,7 @@ const EditProduct = () => {
     fetchProduct();
   }, [productId]);
 
-  // Maneja los cambios en los campos del formulario
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -62,7 +62,7 @@ const EditProduct = () => {
     });
   };
 
-  // Maneja el envío del formulario para actualizar el producto
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
