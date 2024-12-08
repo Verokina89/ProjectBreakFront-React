@@ -14,11 +14,11 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       setIsAuthenticated(!!token); // Verifica si hay un token
     };
-
     const getProducts = async () => {
       const token = localStorage.getItem('token');
       const response = await fetchDataProduct('/api/products', token);
-      if (response) {
+      // if (response) {
+        if (response && Array.isArray(response)) {
         setProducts(response);
       } else {
         setError('Error al obtener los productos');

@@ -1,3 +1,6 @@
+
+
+
 .dashboard {
     padding: 20px;
     text-align: center;
@@ -10,7 +13,9 @@
 }
   
 .product-card {
-    background-color: #fff;
+  font-size: 14px;
+  color: #007bff;
+    background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
