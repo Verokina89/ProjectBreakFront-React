@@ -19,7 +19,7 @@ function AppRoutes() {
 
             <Route path="/products/create" element={<PrivateRoute><CreateNew/>Crear Nuevo Producto</PrivateRoute>} />
 
-            <Route path="/edit-product/:productId" element={<PrivateRoute><EditProduct /></PrivateRoute>} />
+            <Route path="/:productId/edit" element={<PrivateRoute><EditProduct /></PrivateRoute>} />
 
             <Route path="/login" element={<Login />} />
         </Routes>

@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   const handleEdit = (productId) => {
 
-    const route = `/:productId/edit/${productId}`;
+    const route = `/edit/${productId}`;
     console.log("Navegando a:", route); 
     navigate(route); 
   };

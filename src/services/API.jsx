@@ -1,5 +1,5 @@
 //Archivo clave para conecta con el back
-const API_URL = "https://projectbreak-back-react.onrender.com/api"; // URL de tu backend en producción (define la URL base de tu backend)
+const API_URL = "https://projectbreak-back-react.onrender.com"; // URL de tu backend en producción (define la URL base de tu backend)
 
 //manejo de solicitudes GET(obtener productos )
 export const fetchDataProduct = async (endpoint, token = null) => {
