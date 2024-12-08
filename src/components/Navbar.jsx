@@ -25,18 +25,16 @@ const Navbar = () => {
         <li>
           <Link to="/contacto">Contacto</Link>
         </li>
-        <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
+        
         {!user ? (
           <li>
             <Link to="/login">Login</Link>
           </li>
         ) : (
           <>
-            {/* <li>
+            <li>
               <Link to="/dashboard">Dashboard</Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/create">Crear Nuevo Producto</Link>
             </li>

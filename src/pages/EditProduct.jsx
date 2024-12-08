@@ -66,18 +66,25 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage(""); //reset mss
+    console.log("Enviando datos del formulario:", formData); ////////////
     try {
         const token = localStorage.getItem("token");
       if (!token) {
         setMessage("Autenticación requerida. Por favor, inicia sesión.");
+        console.error("Token no encontrado en localStorage"); //////////
         return;
       }
-      const result = await putDataProduct(`/api/products/${productId}/edit`, formData, token);
+
+      console.log("Token encontrado:", token); // Log para verificar el token
+
+      const result = await putDataProduct(`/api/products/${productId}/edit-product`, formData, token);
+
       if (result) {
         setMessage("Producto actualizado exitosamente.");
-        setTimeout(() => navigate("/dashboard"), 4000); // Redirige solo si la actualización fue exitosa
+        setTimeout(() => navigate("/dashboard"), 2000); // Redirige solo si la actualización fue exitosa
       } else {
         setMessage("Error al actualizar producto. Por favor, verifica los datos.");
+        console.error("Error: El resultado es null o inválido.");
       }
     } catch (error) {
       console.error("Error al actualizar producto:", error);
