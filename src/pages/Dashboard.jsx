@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchDataProduct, deleteDataProduct } from '../services/API';
-import '../styles/dashboard.css'; // Asegúrate de tener un archivo CSS para los estilos
+import '../styles/dashboard.css'; 
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     const checkAuthentication = () => {
       const token = localStorage.getItem('token');
-      setIsAuthenticated(!!token); // Verifica si hay un token
+      setIsAuthenticated(!!token); 
     };
     const getProducts = async () => {
       const token = localStorage.getItem('token');
@@ -31,9 +31,9 @@ const Dashboard = () => {
 
   const handleEdit = (productId) => {
 
-    const route = `/edit-product/${productId}`;
-    console.log("Navegando a:", route); // Log para depuración
-    navigate(route); // Navega a la ruta de edición
+    const route = `/:productId/edit/${productId}`;
+    console.log("Navegando a:", route); 
+    navigate(route); 
   };
 
   const handleDelete = async (productId) => {

@@ -1,12 +1,17 @@
 //Archivo clave para conecta con el back
-const API_URL = "https://projectbreak-back-react.onrender.com"; // URL de tu backend en producción (define la URL base de tu backend)
+const API_URL = "https://projectbreak-back-react.onrender.com/api"; // URL de tu backend en producción (define la URL base de tu backend)
 
 //manejo de solicitudes GET(obtener productos )
 export const fetchDataProduct = async (endpoint, token = null) => {
   try {
     
-    const headers = token ? { Authorization: `Bearer ${token}` } : {}; // Agrega token si existe
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`, // Si usas autenticación
+    }
+
     const response = await fetch(`${API_URL}${endpoint}`, { headers });
+
     if (!response.ok) {
       throw new Error("Error en la solicitud GET");
     }
