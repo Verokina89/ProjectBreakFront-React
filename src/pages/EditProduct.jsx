@@ -77,7 +77,7 @@ const EditProduct = () => {
 
       console.log("Token encontrado:", token); // Log para verificar el token
 
-      const result = await putDataProduct(`/api/products/${productId}/edit-product`, formData, token);
+      const result = await putDataProduct(`/api/products/${productId}/edit`, formData, token);
 
       if (result) {
         setMessage("Producto actualizado exitosamente.");
