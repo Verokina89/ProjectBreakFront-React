@@ -16,9 +16,10 @@ function AppRoutes() {
             <Route path="/contacto" element={<Contact />} />
             <Route path="/category" element={<Category />} />
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-            {/* <Route path="/favorites" element={<PrivateRoute><Favorites /></PrivateRoute>} /> */}
-            <Route path="/:productId/edit" element={<PrivateRoute><EditProduct /></PrivateRoute>} />
-            <Route path="/create" element={<PrivateRoute><CreateNew/>Crear Nuevo Producto</PrivateRoute>} />
+
+            <Route path="/edit-product/:productId" element={<PrivateRoute><EditProduct /></PrivateRoute>} />
+
+            <Route path="/products/create" element={<PrivateRoute><CreateNew/>Crear Nuevo Producto</PrivateRoute>} />
             <Route path="/login" element={<Login />} />
         </Routes>
     );

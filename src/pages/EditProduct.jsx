@@ -1,55 +1,63 @@
 import { useEffect, useState } from "react";
 import { fetchDataProduct, putDataProduct } from "../services/API";
 import { useNavigate, useParams } from "react-router-dom";
-import '../styles/dashboard.css'
 
 const EditProduct = () => {
-  const { productId } = useParams();
+  const { productId } = useParams(); // Captura el ID del producto desde la URL
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     price: "",
     image: "",
+    category: "",
+    size: "",
   });
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
+  // Carga los datos del producto al montar el componente
   useEffect(() => {
-    console.log("Product ID en EditProduct:", productId);
-
     const fetchProduct = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const product = await fetchDataProduct(`/api/products/${productId}`, token);
-        setFormData(product);
+        const token = localStorage.getItem("token"); // Recupera el token
+        const product = await fetchDataProduct(`/api/products/${productId}`, token); // Obtiene los datos del producto
+        setFormData(product); // Llena el formulario con los datos obtenidos
       } catch (error) {
         setMessage("Error al cargar el producto.");
+        console.error(error);
       }
     };
+
     fetchProduct();
   }, [productId]);
 
+  // Maneja los cambios en los campos del formulario
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
+  // Maneja el envío del formulario para actualizar el producto
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await putDataProduct(`/api/products/${productId}/edit`, formData, token);
+      const result = await putDataProduct(`/api/products/${productId}/edit`, formData, token); // Actualiza el producto
       setMessage("Producto actualizado exitosamente.");
-      setTimeout(() => navigate("/dashboard"), 2000);
+      setTimeout(() => navigate("/dashboard"), 2000); // Redirige al Dashboard
     } catch (error) {
-      setMessage("Error al actualizar producto.");
+      setMessage("Error al actualizar el producto.");
+      console.error(error);
     }
   };
 
   return (
     <div>
       <h1>Editar Producto</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Nombre:</label>
@@ -84,7 +92,7 @@ const EditProduct = () => {
           />
         </div>
         <div>
-          <label htmlFor="image">Imagen (URL):</label>
+          <label htmlFor="image">Imagen:</label>
           <input
             id="image"
             name="image"
@@ -93,10 +101,29 @@ const EditProduct = () => {
             onChange={handleInputChange}
           />
         </div>
+        <div>
+          <label htmlFor="category">Categoría:</label>
+          <input
+            id="category"
+            name="category"
+            type="text"
+            value={formData.category}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="size">Tamaño:</label>
+          <input
+            id="size"
+            name="size"
+            type="text"
+            value={formData.size}
+            onChange={handleInputChange}
+          />
+        </div>
         <button type="submit">Actualizar Producto</button>
       </form>
     </div>
-   
   );
 };
 
