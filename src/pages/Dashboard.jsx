@@ -30,8 +30,7 @@ const Dashboard = () => {
   }, []);
 
   const handleEdit = (productId) => {
-
-    const route = `/:productId/edit/${productId}`;
+    const route = `/${productId}/edit/`;
     console.log("Navegando a:", route);
     navigate(route); 
   };

@@ -4,9 +4,9 @@ const Contact = () => {
       <>
         <div>
         <h1>CONTACTO</h1>
-        <p>telefono: 94255555</p>
-        <p>Instagram: @kianela_hepuglife</p>
-        <p>Direccion: AV.Pincipal de Santander B 55-77</p>
+        <p>📱 Telefono: 94255555</p>
+        <p>📷 Instagram: @kianela_thepuglife</p>
+        <p>📍 Direccion: AV.Pincipal de Santander B 55-77</p>
       </div>
       </>
       
