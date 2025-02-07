@@ -70,8 +70,7 @@ const EditProduct = () => {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
-        setMessage("Rquiere Auth. Por favor, inicia sesion.");
-    
+        setMessage("Requiere Auth. Por favor, inicia sesion.");
         return;
       }
 

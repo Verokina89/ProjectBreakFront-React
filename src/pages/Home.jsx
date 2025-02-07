@@ -4,8 +4,8 @@ const Home = () => {
     <>
       <div>
       <h1>Inicio</h1>
-      <h2>Bienvenidos a la tienda de Kia y Canela; las pug calino mas monas</h2>
-    </div>
+      <h2>Bienvenidos nuestra tienda de ropa y accesorios online By KIANELA</h2>
+      </div>
     </>
     
   );
