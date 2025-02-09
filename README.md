@@ -96,3 +96,29 @@ Autenticación con token: Asegúrate de incluir el token en los headers para pro
 -src/utils/api.js: no es estrictamente necesario, po se pede utilizar pra manejar funciones adicionales o casos específicos si lo prefieres.
 Dado que ya centralizamos las solicitudes al backend en src/services/API.jsx. Por ejemplo hemops manejar aqui una función específica para productos destacados.
 
+
+El archivo API.jsx; utiliza fetch que son manejados con axios ya que las ventajas que ofrecen hacen el codigo mas limpio y manejable por lo que:
+1️⃣ Manejo automático de JSON (axios convierte la respuesta automáticamente).
+2️⃣ Manejo de errores más claro (con fetch, debes lanzar errores manualmente).
+3️⃣ Configuración global más fácil (por ejemplo, definir una base URL y headers).
+
+Explicación paso a paso
+🔹 axios.create(): Define una instancia con baseURL y Content-Type, evitando repetir configuración en cada petición.
+🔹 Headers con Authorization: Se agregan solo si hay un token.
+🔹 Manejo de errores con error.response?.data: Permite obtener mensajes más detallados desde el backend.
+
+
+
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html> -->

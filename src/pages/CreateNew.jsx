@@ -11,6 +11,7 @@ const CreateNew = () => {
     size: "",
     price: "",
   });
+
   const [message, setMessage] = useState(""); 
   const navigate = useNavigate(); 
 
@@ -18,25 +19,50 @@ const CreateNew = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const token = localStorage.getItem("token"); 
+  //     const result = await postDataProduct("/products/create", formData, token); 
+  //     if (result) {
+  //       setMessage("Producto creado exitosamente."); 
+  //       setTimeout(() => {
+  //         navigate("/dashboard"); 
+  //       }, 2000);
+  //     } else {
+  //       setMessage("Error al crear producto."); 
+  //     }
+  //   } catch (error) {
+  //     console.error("Error al crear producto:", error);
+  //     setMessage("Hubo un error al procesar la solicitud."); 
+  //   }
+  // }
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem("token"); 
-      const result = await postDataProduct("/products/create", formData, token); 
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setMessage("Debes iniciar sesión para crear un producto.");
+        return;
+      }
+      
+      const result = await postDataProduct("/products/create", formData, token);
       if (result) {
-        setMessage("Producto creado exitosamente."); 
+        setMessage("Producto creado exitosamente.");
         setTimeout(() => {
-          navigate("/dashboard"); 
+          navigate("/dashboard");
         }, 2000);
       } else {
-        setMessage("Error al crear producto."); 
+        setMessage("Error al crear producto.");
       }
     } catch (error) {
       console.error("Error al crear producto:", error);
-      setMessage("Hubo un error al procesar la solicitud."); 
+      setMessage("Hubo un error al procesar la solicitud.");
     }
-  }
+  };
   
+
   return (
     <div>
       <h2>Añadir Producto</h2>
