@@ -107,7 +107,21 @@ Explicación paso a paso
 🔹 Headers con Authorization: Se agregan solo si hay un token.
 🔹 Manejo de errores con error.response?.data: Permite obtener mensajes más detallados desde el backend.
 
+import axios from "axios";
 
+Importa axios correctamente.
+Usamos import porque en React con Vite, ES Modules (ESM) es el sistema de módulos por defecto.
+const API_URL = "https://projectbreak-back-react.onrender.com";
+
+Define la URL base del backend.
+const api = axios.create({...})
+
+Crea una instancia de axios con configuración predefinida.
+Se establece la baseURL para que todas las peticiones partan de esta dirección.
+Se configuran los headers para enviar datos en formato JSON.
+export default api;
+
+Exportamos la instancia api para usarla en otros archivos.
 
 <!-- <!doctype html>
 <html lang="en">

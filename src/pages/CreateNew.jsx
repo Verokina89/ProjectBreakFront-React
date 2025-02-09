@@ -47,7 +47,7 @@ const CreateNew = () => {
         return;
       }
       
-      const result = await postDataProduct("/products/create", formData, token);
+      const result = await postDataProduct("api/products/create", formData, token);
       if (result) {
         setMessage("Producto creado exitosamente.");
         setTimeout(() => {

@@ -2,11 +2,14 @@ import axios from "axios";
 
 const API_URL = "https://projectbreak-back-react.onrender.com";
 
-//configura axios
-const api = axios.create({
+//config axios
+export const api = axios.create({
   baseURL: API_URL,
-  headers: { "Content-Type": "application/json" },
+  headers: { 
+    "Content-Type": "application/json",
+  },
 });
+
 
 //maneja GET
 export const fetchDataProduct = async (endpoint, token = null) => {
@@ -21,7 +24,7 @@ export const fetchDataProduct = async (endpoint, token = null) => {
 };
 
 // maneja POST
-export const postDataProduct = async (endpoint, data, token = null) => {
+export const postDataProduct = async (endpoint, data, token) => {
   try {
     const headers = token ? { Authorization: `Bearer ${token}` } : {};
     const response = await api.post(endpoint, data, { headers });
@@ -55,10 +58,6 @@ export const deleteDataProduct = async (endpoint, token = null) => {
     return null;
   }
 };
-
-
-
-
 
 
 

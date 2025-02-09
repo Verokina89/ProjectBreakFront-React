@@ -61,6 +61,7 @@ const EditProduct = () => {
       [name]: value,
     });
   };
+
   
   const handleSubmit = async (e) => {
     e.preventDefault();
