@@ -8,6 +8,7 @@ const CreateNew = () => {
     description: "",
     image: "",
     category: "",
+    color: "",
     size: "",
     price: "",
   });
@@ -20,24 +21,6 @@ const CreateNew = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const token = localStorage.getItem("token"); 
-  //     const result = await postDataProduct("/products/create", formData, token); 
-  //     if (result) {
-  //       setMessage("Producto creado exitosamente."); 
-  //       setTimeout(() => {
-  //         navigate("/dashboard"); 
-  //       }, 2000);
-  //     } else {
-  //       setMessage("Error al crear producto."); 
-  //     }
-  //   } catch (error) {
-  //     console.error("Error al crear producto:", error);
-  //     setMessage("Hubo un error al procesar la solicitud."); 
-  //   }
-  // }
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -65,7 +48,7 @@ const CreateNew = () => {
 
   return (
     <div>
-      <h2>Añadir Producto</h2>
+      <h2>Añadir Nuevo Producto</h2>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
         <div>
@@ -90,7 +73,7 @@ const CreateNew = () => {
           />
         </div>
         <div>
-          <label>URL Imagen</label>
+          <label>Imagen</label>
           <input
             type="text"
             name="image"
@@ -112,11 +95,22 @@ const CreateNew = () => {
           />
         </div>
         <div>
+          <label>Color</label>
+          <input
+            type="text"
+            name="color"
+            placeholder="Azul"
+            value={formData.size}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
           <label>Tamaño</label>
           <input
             type="text"
             name="size"
-            placeholder="Tamaño"
+            placeholder="S"
             value={formData.size}
             onChange={handleInputChange}
             required
@@ -127,13 +121,13 @@ const CreateNew = () => {
           <input
             type="number"
             name="price"
-            placeholder="Precio"
+            placeholder="9.9"
             value={formData.price}
             onChange={handleInputChange}
             required
           />
         </div>
-        <button type="submit">Crear Producto</button>
+        <button type="submit">Crear</button>
       </form>
     </div>
   );

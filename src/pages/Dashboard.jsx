@@ -17,7 +17,6 @@ const Dashboard = () => {
     const getProducts = async () => {
       const token = localStorage.getItem('token');
       const response = await fetchDataProduct('/api/products', token);
-      // if (response) {
         if (response && Array.isArray(response)) {
         setProducts(response);
       } else {
@@ -56,7 +55,9 @@ const Dashboard = () => {
             <div className="product-info">
               <h2>{product.name}</h2>
               <p>{product.description}</p>
-              <p>Precio: ${product.price}</p>
+              <p>{product.price}</p>
+              <p>{product.color}</p>
+
             </div>
             {isAuthenticated && (
               <div className="product-actions">
