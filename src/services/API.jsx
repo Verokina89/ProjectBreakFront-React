@@ -53,8 +53,13 @@ export const putDataProduct = async (endpoint, data, token = null) => {
 // Función DELETE
 export const deleteDataProduct = async (endpoint, token = null) => {
   try {
-    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+    // const headers = token ? { Authorization: `Bearer ${token}` } : {};
+    const headers = token
+      ? { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }
+      : { "Content-Type": "application/json" };
+
     const response = await api.delete(endpoint, { headers });
+    
     return response.data;
   } catch (error) {
     console.error("Error en DELETE:", error.response?.data || error.message);
