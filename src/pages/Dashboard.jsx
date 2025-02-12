@@ -37,7 +37,9 @@ const Dashboard = () => {
   const handleDelete = async (productId) => {
     const token = localStorage.getItem('token');
     const response = await deleteDataProduct(`/api/products/${productId}`, token);
+
     if (response) {
+      alert("Producto eliminado correctamente");
       setProducts(products.filter((product) => product._id !== productId));
     } else {
       alert('Error al eliminar el producto');
@@ -60,7 +62,7 @@ const Dashboard = () => {
 
             </div>
             {isAuthenticated && (
-              <div className="product-actions">
+              <div className="product-btnActions">
                 <button onClick={() => handleEdit(product._id)}>Editar</button>
                 <button onClick={() => handleDelete(product._id)}>Eliminar</button>
               </div>

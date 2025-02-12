@@ -52,7 +52,7 @@ const CreateNew = () => {
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Nombre</label>
+          <label>Nombre </label>
           <input
             type="text"
             name="name"
@@ -63,7 +63,7 @@ const CreateNew = () => {
           />
         </div>
         <div>
-          <label>Descripción</label>
+          <label>Descripción </label>
           <textarea
             name="description"
             placeholder="Descripción"
@@ -73,7 +73,7 @@ const CreateNew = () => {
           />
         </div>
         <div>
-          <label>Imagen</label>
+          <label>Imagen </label>
           <input
             type="text"
             name="image"
@@ -84,7 +84,7 @@ const CreateNew = () => {
           />
         </div>
         <div>
-          <label>Categoría</label>
+          <label>Categoría </label>
           <input
             type="text"
             name="category"
@@ -95,18 +95,18 @@ const CreateNew = () => {
           />
         </div>
         <div>
-          <label>Color</label>
+          <label>Color </label>
           <input
             type="text"
             name="color"
             placeholder="Azul"
-            value={formData.size}
+            value={formData.color}
             onChange={handleInputChange}
             required
           />
         </div>
         <div>
-          <label>Tamaño</label>
+          <label>Tamaño </label>
           <input
             type="text"
             name="size"
@@ -117,7 +117,7 @@ const CreateNew = () => {
           />
         </div>
         <div>
-          <label>Precio</label>
+          <label>Precio </label>
           <input
             type="number"
             name="price"

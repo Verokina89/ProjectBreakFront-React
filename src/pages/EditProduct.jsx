@@ -5,12 +5,13 @@ import { useNavigate, useParams } from "react-router-dom";
 const EditProduct = () => {
   const { productId } = useParams(); 
   const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    price: "",
-    image: "",
-    category: "",
-    size: "",
+    name:"",
+    description:"",
+    price:"",
+    image:"",
+    category:"",
+    color:"",
+    size:"",
   });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true); 
@@ -36,6 +37,7 @@ const EditProduct = () => {
             price: product.price || "",
             image: product.image || "",
             category: product.category || "",
+            color: product.color || "",
             size: product.size || "",
           });
         } else {
@@ -147,6 +149,16 @@ const EditProduct = () => {
             name="category"
             type="text"
             value={formData.category}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="color">Color: </label>
+          <input
+            id="color"
+            name="color"
+            type="text"
+            value={formData.color}
             onChange={handleInputChange}
           />
         </div>
