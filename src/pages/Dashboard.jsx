@@ -36,7 +36,7 @@ const Dashboard = () => {
 
   const handleDelete = async (productId) => {
     const token = localStorage.getItem('token');
-    const response = await deleteDataProduct(`/api/products/${productId}`, token);
+    const response = await deleteDataProduct(`/api/products/${productId}/delete`, token);
 
     if (response) {
       alert("Producto eliminado correctamente");
