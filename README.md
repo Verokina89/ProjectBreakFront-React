@@ -1,7 +1,7 @@
 # React + Vite
 Trabajaremos un Frontend con React. El frontend debe consumir estos endpoints correctamente usando las herramientas configuradas (fetch, axios). Aseguramos de manejar correctamente el token de Firebase para proteger las rutas privadas (Dashboard, EditProduct). 
 
-Claves de Acceso: vero@gmail.com  Aa123456
+Claves de Acceso: example@gmail.com  A123456
 
 # Acceso al Backend con los endpoints.
 /auth/login: Inicia sesión.
